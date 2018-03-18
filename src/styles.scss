@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  font-family: OpenSans;
+  box-sizing: border-box;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+body {
+    padding: 0px 10%;
+}

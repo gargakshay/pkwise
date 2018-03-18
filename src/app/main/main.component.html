@@ -1,0 +1,39 @@
+<div fxLayout fxLayout.xs="column" fxLayoutAlign="start center">
+  <div fxFlex>
+    <div fxLayout="column">
+      <div fxFlex>
+        <span class=heading>
+          Start Investing Wisely Today,
+        </span>
+        <span class=heading>
+          Fly Like Superman from Tomorrow.
+        </span>
+
+      </div>
+      <div fxFlex>
+        <mat-card class="detail-form">
+          <form (ngSubmit)="submit(form)" #form="ngForm" ngNativeValidate>
+            <mat-card-title class="Register-Today">
+              Register Today
+            </mat-card-title>
+            <mat-card-content>
+              <mat-input-container>
+                <input type="text" matInput placeholder="Username" name="username" required>
+              </mat-input-container>
+              <mat-input-container>
+                <input type="number" matInput placeholder="Enter mobile number" name="mobile" size="10" maxlength="10" required>
+              </mat-input-container>
+            </mat-card-content>
+            <button mat-button type="submit" color="primary">Submit</button>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div fxFlex>
+    <img src="/assets/img/mf.png">
+  </div>
+</div>
