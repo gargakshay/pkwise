@@ -3,10 +3,8 @@
     <div fxLayout="column">
       <div fxFlex>
         <span class=heading>
-          Start Investing Wisely Today,
-        </span>
-        <span class=heading>
-          Fly Like Superman from Tomorrow.
+          Invest Wisely and Get Richer, Invest for your safe tomorrow.
+          <!-- Start Investing Wisely Today,  -->
         </span>
 
       </div>
@@ -17,12 +15,20 @@
               Register Today
             </mat-card-title>
             <mat-card-content>
-              <mat-input-container>
-                <input type="text" matInput placeholder="Username" name="username" required>
-              </mat-input-container>
-              <mat-input-container>
-                <input type="number" matInput placeholder="Enter mobile number" name="mobile" size="10" maxlength="10" required>
-              </mat-input-container>
+              <ng-container *ngIf="!isSubmit">
+                <mat-input-container>
+                  <input type="text" matInput placeholder="Username" name="username" required maxlength="25">
+                </mat-input-container>
+                <mat-input-container>
+                  <input type="number" matInput placeholder="Enter mobile number" name="mobile" size="10" maxlength="10" required>
+                </mat-input-container>
+              </ng-container>
+              <ng-container *ngIf="isSubmit">
+                  <span>Enter the OTP sent via SMS</span>
+                <mat-input-container>
+                  <input type="number" matInput placeholder="Enter OTP" name="mobile" size="10" maxlength="10" required>
+                </mat-input-container>
+              </ng-container>
             </mat-card-content>
             <button mat-button type="submit" color="primary">Submit</button>
           </form>

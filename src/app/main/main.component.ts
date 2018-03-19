@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  isSubmit = false;
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +14,12 @@ export class MainComponent implements OnInit {
 
   submit(form) {
       console.log('submit', form);
-      alert('Record saved');
+      this.isSubmit = !this.isSubmit;
+
+      if(!this.isSubmit) {
+        alert('Record Saved...!!!')
+      }
+
   }
 
 }
