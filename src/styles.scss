@@ -2,7 +2,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
-  font-family: OpenSans;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -11,6 +12,24 @@
   width: 100%;
 }
 
-body {
-    padding: 0px 10%;
+@media (min-width: 360px) {
+  body {
+    font-size: 1em;
+  }
+  .logo {
+    display: block;
+    margin: auto;
+  }
+}
+
+@media (min-width: 640px) {
+  body {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    margin: 0;
+  }
 }
