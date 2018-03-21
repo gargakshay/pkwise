@@ -17,16 +17,19 @@
             <mat-card-content>
               <ng-container *ngIf="!isSubmit">
                 <mat-input-container>
-                  <input type="text" matInput placeholder="Username" name="username" required maxlength="25">
+                  <input type="text" matInput placeholder="Enter Username" name="username" [(ngModel)]="user.name" required maxlength="25">
                 </mat-input-container>
                 <mat-input-container>
-                  <input type="number" matInput placeholder="Enter mobile number" name="mobile" size="10" maxlength="10" required>
+                  <input type="number" matInput placeholder="Enter mobile number" name="mobile" [(ngModel)]="user.mobile" size="10" maxlength="10" required>
+                </mat-input-container>
+                <mat-input-container>
+                  <input type="email" matInput placeholder="Enter Email id" name="email" [(ngModel)]="user.email" required>
                 </mat-input-container>
               </ng-container>
               <ng-container *ngIf="isSubmit">
                   <span>Enter the OTP sent via SMS</span>
                 <mat-input-container>
-                  <input type="number" matInput placeholder="Enter OTP" name="mobile" size="10" maxlength="10" required>
+                  <input type="number" matInput placeholder="Enter OTP" [(ngModel)]="otpData.otp" name="opt" size="10" maxlength="10" required>
                 </mat-input-container>
               </ng-container>
             </mat-card-content>

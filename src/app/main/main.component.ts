@@ -1,4 +1,7 @@
+import { UserData, OtpData } from './../common/container/container';
+import { RestcallService } from './../restcall.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-main',
@@ -7,18 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   isSubmit = false;
-  constructor() { }
+  user: UserData;
+  otpData: OtpData;
+  constructor(private restcallService: RestcallService) {
+    this.user = new UserData('', '', '');
+    this.otpData = new OtpData('', '');
+  }
 
   ngOnInit() {
   }
 
   submit(form) {
-      console.log('submit', form);
-      this.isSubmit = !this.isSubmit;
+    console.log('submit', form);
+    this.isSubmit = !this.isSubmit;
 
-      if(!this.isSubmit) {
-        alert('Record Saved...!!!')
-      }
+    if (!this.isSubmit) {
+      this.otpData.mobile = this.user.mobile;
+      this.restcallService.verifyOpt(this.otpData).subscribe(val => {
+        console.log('OTP Response ', val);
+      });
+      alert('Record Saved...!!!')
+    } else {
+      this.restcallService.addUserInfo(this.user);
+    }
+
 
   }
 
