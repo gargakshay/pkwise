@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
       },
       error => {
         console.error('Error in addUserInfo', error)
-        this.errorMsg = `*${error.error}`;
+        this.errorMsg = `*Email or Mobile number must be Unique`;
       });
 
   }
