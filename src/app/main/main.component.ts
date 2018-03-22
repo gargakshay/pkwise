@@ -1,7 +1,7 @@
 import { UserData, OtpData } from './../common/container/container';
 import { RestcallService } from './../restcall.service';
 import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -22,9 +22,17 @@ export class MainComponent implements OnInit {
   }
 
   submitUserDetails() {
-    this.restcallService.addUserInfo(this.user);
-    this.isUserForm = false;
-    this.otpData = new OtpData(this.user.mobile, '');
+    this.restcallService.addUserInfo(this.user).subscribe(
+      val => {
+        this.isUserForm = false;
+        this.errorMsg = '';
+        this.otpData = new OtpData(this.user.mobile, '');
+      },
+      error => {
+        console.error('Error in addUserInfo', error)
+        this.errorMsg = `*${error.error}`;
+      });
+
   }
 
   submitOtp() {

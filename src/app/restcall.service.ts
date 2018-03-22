@@ -17,10 +17,7 @@ export class RestcallService {
   constructor(private httpClient: HttpClient) { }
   //Observable<User>
   addUserInfo(user: User) {
-    return this.httpClient.post<User>(this.signUpUrl, user, httpOptions).subscribe(val => {
-      console.log('Response ', val);
-    },
-      error => console.error('Error in addUserInfo', error));
+    return this.httpClient.post<User>(this.signUpUrl, user, httpOptions);
   }
 
   verifyOpt(otpData: OtpData) {
