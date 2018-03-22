@@ -19,7 +19,8 @@ export class RestcallService {
   addUserInfo(user: User) {
     return this.httpClient.post<User>(this.signUpUrl, user, httpOptions).subscribe(val => {
       console.log('Response ', val);
-    });
+    },
+      error => console.error('Error in addUserInfo', error));
   }
 
   verifyOpt(otpData: OtpData) {

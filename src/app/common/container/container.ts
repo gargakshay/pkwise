@@ -1,5 +1,5 @@
 export class UserData {
-    constructor(public email: string, public mobile: string, public name: string) {
+    constructor(public mobile: string, public name: string, public email: string) {
     }
 }
 

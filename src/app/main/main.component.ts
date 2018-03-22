@@ -1,6 +1,7 @@
 import { UserData, OtpData } from './../common/container/container';
 import { RestcallService } from './../restcall.service';
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -9,32 +10,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  isSubmit = false;
+  isUserForm = true;
   user: UserData;
   otpData: OtpData;
-  constructor(private restcallService: RestcallService) {
+  errorMsg: string;
+  constructor(private restcallService: RestcallService, private snackBar: MatSnackBar) {
     this.user = new UserData('', '', '');
-    this.otpData = new OtpData('', '');
   }
 
   ngOnInit() {
   }
 
-  submit(form) {
-    console.log('submit', form);
-    this.isSubmit = !this.isSubmit;
+  submitUserDetails() {
+    this.restcallService.addUserInfo(this.user);
+    this.isUserForm = false;
+    this.otpData = new OtpData(this.user.mobile, '');
+  }
 
-    if (!this.isSubmit) {
-      this.otpData.mobile = this.user.mobile;
-      this.restcallService.verifyOpt(this.otpData).subscribe(val => {
-        console.log('OTP Response ', val);
+  submitOtp() {
+    this.restcallService.verifyOpt(this.otpData).subscribe(
+      val => {
+        this.openSnackBar('Detail Saved Successfully');
+        this.newUserForm();
+      },
+      error => {
+        if (error.error) {
+          this.errorMsg = `*${error.error.message}`;
+        }
       });
-      alert('Record Saved...!!!')
-    } else {
-      this.restcallService.addUserInfo(this.user);
-    }
+  }
 
+  newUserForm() {
+    this.isUserForm = true;
+    this.user = new UserData('', '', '');
+    this.errorMsg = '';
+  }
 
+  openSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 2000
+    });
   }
 
 }

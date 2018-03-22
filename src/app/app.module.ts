@@ -2,7 +2,7 @@ import { RestcallService } from './restcall.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatButton, MatButtonModule, MatCardModule } from '@angular/material';
+import { MatInputModule, MatButton, MatButtonModule, MatCardModule, MatSnackBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatSnackBarModule,
     FlexLayoutModule
   ],
   declarations: [
