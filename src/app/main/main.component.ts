@@ -34,9 +34,8 @@ export class MainComponent implements OnInit {
         this.newUserForm();
       },
       error => {
-        alert(JSON.stringify(error.error));
         if (error.error) {
-          this.errorMsg = `*${error.error.message}`;
+          this.errorMsg = `*Incorrect OTP! Please re-enter the OTP.`;
         }
       });
   }
