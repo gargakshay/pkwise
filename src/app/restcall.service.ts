@@ -6,13 +6,13 @@ import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-}
+};
 
 @Injectable()
 export class RestcallService {
 
-  signUpUrl = 'http://54.159.136.87/api/signup/';
-  otpUrl = 'http://54.159.136.87/api/signup_otp_verification/';
+  signUpUrl = '//54.159.136.87/api/signup/';
+  otpUrl = '//54.159.136.87/api/signup_otp_verification/';
 
   constructor(private httpClient: HttpClient) { }
   //Observable<User>
