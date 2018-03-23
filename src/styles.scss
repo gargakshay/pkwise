@@ -27,7 +27,10 @@
 }
 
 .user-form {
-  margin: 20px;
+  margin-left: auto;
+  max-width: 80%;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 .register-today {
@@ -86,5 +89,9 @@ h2 {
 
   h2 {
     font-size: 36px;
+  }
+
+  .user-form {
+    max-width: 60%;
   }
 }

@@ -13,6 +13,7 @@ export class RestcallService {
 
   signUpUrl = '//54.159.136.87/api/signup/';
   otpUrl = '//54.159.136.87/api/signup_otp_verification/';
+  resendOtpUrl = '//54.159.136.87/api/resend_otp/';
 
   constructor(private httpClient: HttpClient) { }
   //Observable<User>
@@ -22,6 +23,10 @@ export class RestcallService {
 
   verifyOpt(otpData: OtpData) {
     return this.httpClient.post<User>(this.otpUrl, otpData, httpOptions);
+  }
+
+  resendOtp(mobileNo: string) {
+    return this.httpClient.post<User>(this.resendOtpUrl, {mobile: mobileNo}, httpOptions);
   }
 
 }

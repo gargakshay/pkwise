@@ -1,16 +1,17 @@
+<mat-progress-bar color="primary" mode="indeterminate" *ngIf="isSubmitting"></mat-progress-bar>
 <div fxLayout fxLayout.xs="column" fxLayoutAlign="start center">
   <div fxFlex>
     <div fxLayout="column">
       <div fxFlex>
         <h2 class="light-blue">
-          Welcome to the world of investing, Register to get early access
+          Welcome to the world of investing
         </h2>
 
       </div>
       <div fxFlex>
         <mat-card class="user-form">
           <mat-card-title class="register-today">
-            Register Today
+              Register to get early access
           </mat-card-title>
           <mat-card-content>
             <ng-container *ngIf="isUserForm else otpForm">
@@ -26,18 +27,18 @@
                   <input type="email" matInput placeholder="Enter Email (optional)" name="email" [(ngModel)]="user.email">
                 </mat-input-container>
                 <p class="error-msg">{{errorMsg}}</p>
-                <button mat-raised-button type="submit" color="primary">Submit</button>
+                <button mat-raised-button type="submit" [disabled]="isSubmitting" color="primary">{{isSubmitting ? 'Submitting' : 'Submit'}}</button>
               </form>
             </ng-container>
             <ng-template #otpForm>
               <form (ngSubmit)="submitOtp()" #form="ngForm" ngNativeValidate>
                 <span>Enter the OTP sent via SMS to {{otpData.mobile}}</span>
                 <mat-input-container>
-                  <input type="number" matInput placeholder="Enter OTP" [(ngModel)]="otpData.otp" name="opt" size="10" maxlength="10" required>
+                  <input type="text" pattern="\d{4}" matInput placeholder="Enter OTP" title="Please enter valid OTP" [(ngModel)]="otpData.otp" name="opt" maxlength="4" required>
                 </mat-input-container>
                 <span class="error-msg">{{errorMsg}}</span>
-                <p class="resend-otp">Didn't get the OTP? <a href="#" role="button" (click)="submitOtp()" class="light-blue">Resend</a></p>
-                <button mat-raised-button type="submit" color="primary">Submit</button>
+                <p class="resend-otp">Didn't get the OTP? <a href="#" role="button" (click)="resendOtp()" class="light-blue">Resend</a><a href="#" role="button" (click)="editInfo()" class="light-blue">Edit</a></p>
+                <button mat-raised-button type="submit" [disabled]="isSubmitting" color="primary">{{isSubmitting ? 'Submitting' : 'Submit'}}</button>
               </form>
             </ng-template>
           </mat-card-content>
