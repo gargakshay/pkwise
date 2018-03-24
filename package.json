@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "code": "ng serve --host 192.168.43.86 --ssl 1 --ssl-key ./server.key --ssl-cert ./server.crt",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,6 +26,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "browser-sync": "^2.23.6",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "hammerjs": "^2.0.8",

@@ -15,17 +15,17 @@
           </mat-card-title>
           <mat-card-content>
             <ng-container *ngIf="isUserForm else otpForm">
-              <form (ngSubmit)="submitUserDetails()" #form="ngForm" ngNativeValidate>
+              <form fxLayout="column" (ngSubmit)="submitUserDetails()" #form="ngForm" ngNativeValidate>
                 <mat-input-container>
                   <input type="text" matInput placeholder="Enter User Name" name="username" [(ngModel)]="user.name" required maxlength="25">
                 </mat-input-container>
                 <mat-input-container>
-                  <input type="text" pattern="[789][0-9]{9}" matInput placeholder="Enter 10 digit Mobile Number" title="Enter 10 digit Valid Mobile Number" name="mobile" [(ngModel)]="user.mobile" size="10"
+                  <input type="text" pattern="[789][0-9]{9}" matInput placeholder="Enter Mobile Number" title="Enter 10 digit Valid Mobile Number" name="mobile" [(ngModel)]="user.mobile" size="10"
                     maxlength="10" required>
                 </mat-input-container>
-                <mat-input-container>
+                <!-- <mat-input-container>
                   <input type="email" matInput placeholder="Enter Email (optional)" name="email" [(ngModel)]="user.email">
-                </mat-input-container>
+                </mat-input-container> -->
                 <p class="error-msg">{{errorMsg}}</p>
                 <button mat-raised-button type="submit" [disabled]="isSubmitting" color="primary">{{isSubmitting ? 'Submitting' : 'Submit'}}</button>
               </form>
@@ -48,6 +48,6 @@
   </div>
 
   <div fxFlex>
-    <img src="/assets/img/mf.png">
+    <img class="mf-img" src="/assets/img/mf.png">
   </div>
 </div>
