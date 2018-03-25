@@ -4,7 +4,7 @@
     <div fxLayout="column">
       <div fxFlex>
         <h2 class="light-blue">
-          Welcome to the world of investing
+          Welcome to the world of Investing
         </h2>
 
       </div>
@@ -41,6 +41,12 @@
                 <button mat-raised-button type="submit" [disabled]="isSubmitting" color="primary">{{isSubmitting ? 'Submitting' : 'Submit'}}</button>
               </form>
             </ng-template>
+            <!-- <ng-container *ngIf="isThankyou">
+              <div>
+                <h3>THANK YOU !</h3>
+                <p class="register-msg">You have been registered for early access.</p>
+              </div>
+            </ng-container> -->
           </mat-card-content>
         </mat-card>
       </div>
@@ -48,6 +54,6 @@
   </div>
 
   <div fxFlex>
-    <img class="mf-img" src="/assets/img/mf.png">
+    <img class="mf-img" src="/assets/img/mutualfund.jpg">
   </div>
 </div>

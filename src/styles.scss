@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
-  font-family: 'Open Sans';
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -43,7 +43,7 @@
   font-size: 13px;
   color: #223168;
   font-weight: 600;
-  text-align: center;
+  // text-align: center;
 }
 
 h2 {
@@ -52,6 +52,15 @@ h2 {
   text-align: center;
   margin: 0;
   line-height: 1.4;
+}
+
+h3 {
+  color: #223168;
+}
+
+.register-msg {
+  color: #a6a6a5; 
+  font-size: 12px;
 }
 
 .resend-otp {
@@ -94,7 +103,8 @@ h2 {
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 36px;
+    text-align: left;
   }
 
   .user-form {
