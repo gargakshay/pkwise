@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
     this.isSubmitting = true;
     this.restcallService.verifyOpt(this.otpData).subscribe(
       val => {
-        this.openSnackBar('Detail Saved Successfully');
+        this.openSnackBar('You have been registered.');
         this.newUserForm();
         this.isSubmitting = false;
       },
@@ -77,5 +77,4 @@ export class MainComponent implements OnInit {
       duration: 2000
     });
   }
-
 }

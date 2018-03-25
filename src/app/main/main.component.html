@@ -17,7 +17,7 @@
             <ng-container *ngIf="isUserForm else otpForm">
               <form fxLayout="column" (ngSubmit)="submitUserDetails()" #form="ngForm" ngNativeValidate>
                 <mat-input-container>
-                  <input type="text" matInput placeholder="Enter User Name" name="username" [(ngModel)]="user.name" required maxlength="25">
+                  <input type="text" matInput placeholder="Enter Name" name="username" [(ngModel)]="user.name" required maxlength="25">
                 </mat-input-container>
                 <mat-input-container>
                   <input type="text" pattern="[789][0-9]{9}" matInput placeholder="Enter Mobile Number" title="Enter 10 digit Valid Mobile Number" name="mobile" [(ngModel)]="user.mobile" size="10"
@@ -37,7 +37,8 @@
                   <input type="text" pattern="\d{4}" matInput placeholder="Enter OTP" title="Please enter valid OTP" [(ngModel)]="otpData.otp" name="opt" maxlength="4" required>
                 </mat-input-container>
                 <span class="error-msg">{{errorMsg}}</span>
-                <p class="resend-otp">Didn't get the OTP? <a href="#" role="button" (click)="resendOtp()" class="light-blue">Resend</a><a href="#" role="button" (click)="editInfo()" class="light-blue">Edit</a></p>
+                <p class="resend-otp">Didn't get the OTP? <a href="#" role="button" (click)="resendOtp()" class="light-blue">Resend</a></p>
+                <!-- <a href="#" role="button" (click)="editInfo()" class="light-blue">Edit</a> -->
                 <button mat-raised-button type="submit" [disabled]="isSubmitting" color="primary">{{isSubmitting ? 'Submitting' : 'Submit'}}</button>
               </form>
             </ng-template>
